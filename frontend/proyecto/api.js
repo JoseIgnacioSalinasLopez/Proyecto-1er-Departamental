@@ -1,7 +1,8 @@
-// Detecta si estás en producción (Render) o en local
-const BASE_URL = window.location.hostname.includes("onrender.com")
-  ? "https://api-node-jrsy.onrender.com/scores"
-  : "/api/scores";
+const isProd = window.location.hostname.includes("github.io");
+
+const BASE_URL = isProd
+  ? "https://api-node-jrsy.onrender.com/api/scores" // Render
+  : "http://localhost:3000/api/scores";             // Local
 
 export const api = {
   getScores: async () => {
@@ -30,3 +31,4 @@ export const api = {
     }
   },
 };
+
