@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.info {
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #005fa3;
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 15px;
+  justify-content: center;
+}
+
+.carta {
+  width: 80px;
+  height: 100px;
+  perspective: 600px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cara {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform 0.5s;
+}
+
+.frente {
+  background: #0077cc;
+  color: white;
+  transform: rotateY(0deg);
+}
+
+.atras {
+  transform: rotateY(180deg);
+}
+
+.carta.volteada .frente {
+  transform: rotateY(180deg);
+}
+.carta.volteada .atras {
+  transform: rotateY(0deg);
+}
+
+.mensaje {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+}
+
+.mensaje.perdiste {
+  color: red;
+}

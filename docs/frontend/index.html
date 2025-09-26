@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto Integrador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+ 
+
+    body {
+  font-family: 'Inter', sans-serif;
+  background: url('proyecto/assets/fondoIndex.gif') no-repeat center center fixed;
+  background-size: cover;
+  color: #8db7ed; /* azul claro */
+}
+
+
+    .glass-card {
+      background: rgba(20, 25, 40, 0.75);
+      border: 1px solid rgba(8, 44, 247, 0.768);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 0 20px rgba(10, 21, 229, 0.777);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+  <!-- HEADER -->
+  <header class="w-full max-w-5xl p-6 rounded-xl glass-card mb-10 mt-6">
+    <nav class="flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-cyan-400 drop-shadow-lg">RunnerJS</h1>
+      <div class="space-x-6">
+        <a href="#inicio" class="text-cyan-300 hover:text-cyan-400 transition">Inicio</a>
+        <a href="practicas/practicasIndex.html" class="text-cyan-300 hover:text-cyan-400 transition">Prácticas</a>
+        <a href="proyecto/game.html" class="text-cyan-300 hover:text-cyan-400 transition">Proyecto</a>
+        <a href="proyecto/leaderboard.html" class="text-cyan-300 hover:text-cyan-400 transition">Puntuaciones(Leaderboard)</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main class="w-full max-w-5xl grid gap-6 md:grid-cols-2 lg:grid-cols-3 px-4">
+    <!-- Tarjetas de prácticas -->
+    <section id="practicas-section" class="md:col-span-2 lg:col-span-3 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 1</h2>
+        <p class="text-gray-300">Maquetación y estilos de pantalla de Login Fantástico</p>
+        <a href="practicas/Practica 1 Maquetacion y estilos/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 2</h2>
+        <p class="text-gray-300">Página web interactiva de “Tarjeta de Presentación”</p>
+        <a href="practicas/Practica 1 y 2 Prácticas desarrollo Web/Practica 1/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 2.1</h2>
+        <p class="text-gray-300">Construcción de un Juego Interactivo Simple</p>
+        <a href="practicas/Practica 1 y 2 Prácticas desarrollo Web/Practica 2/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 3</h2>
+        <p class="text-gray-300">Landing Page Interactiva con Validación de Formulario</p>
+        <a href="practicas/Practica 3/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 4</h2>
+        <p class="text-gray-300">Juego de Memoria con Cartas Personalizadas</p>
+        <a href="practicas/Practica 4/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+      <div class="p-6 rounded-xl glass-card">
+        <h2 class="text-2xl font-semibold text-cyan-300 mb-2">Práctica 5</h2>
+        <p class="text-gray-300">App de Clima Local con API y Geolocalización</p>
+        <a href="practicas/Practica 5/html/index.html" class="mt-4 inline-block text-cyan-400 hover:underline">Ver Práctica</a>
+      </div>
+    </section>
+
+    <!-- Proyecto -->
+    <section id="proyecto" class="md:col-span-2 lg:col-span-3">
+      <div class="p-10 rounded-xl glass-card text-center">
+        <h2 class="text-3xl font-bold text-cyan-400 mb-4">Proyecto </h2>Un juego endless runner con un sistema de puntuaciones y niveles progresivos de dificultad
+        <p class="text-lg text-gray-300 mb-6">.</p>
+        <a href="proyecto/game.html" class="bg-cyan-400 text-gray-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-cyan-300 transition-transform transform hover:scale-105">
+          Jugar Ahora
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

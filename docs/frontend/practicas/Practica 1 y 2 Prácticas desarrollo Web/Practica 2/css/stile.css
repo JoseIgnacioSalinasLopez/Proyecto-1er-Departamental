@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("../img/fondo.png");
+  background-size: cover;        /* La imagen cubre toda la pantalla */
+  background-position: center;   /* Centrada */
+  background-attachment: fixed;  /* Efecto de fijado al hacer scroll */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.game-container {
+  background: rgba(255, 255, 255, 0.9); /* Blanco translúcido para resaltar el contenido */
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.choice {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Imágenes de botones */
+.choice.piedra {
+  background-image: url("../img/piedra.png");
+}
+
+.choice.papel {
+  background-image: url("../img/papel.png");
+}
+
+.choice.tijeras {
+  background-image: url("../img/tijeras.png");
+}
+
+.choice:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8p
+}

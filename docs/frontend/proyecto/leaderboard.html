@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Puntuaciones</title>
+    <link rel="stylesheet" href="game.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="leaderboard-container" class="container-main">
+        <a href="../index.html" class="self-start mb-4 bg-blue-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300">
+            Regresar a Inicio
+        </a>
+        <div class="w-full max-w-md bg-white p-6 rounded-xl shadow-md">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800 text-center">Tabla de Mejores Puntuaciones</h3>
+            <ul id="scores-list" class="space-y-2">
+                <!-- Las puntuaciones se insertarán aquí dinámicamente -->
+            </ul>
+        </div>
+    </div>
+    <script type="module">
+        import { api } from './api.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLeaderboard();
+        });
+        
+        async function loadLeaderboard() {
+            const scoresList = document.getElementById('scores-list');
+            
+            try {
+                const scores = await api.getScores();
+                scoresList.innerHTML = '';
+                if (scores.length === 0) {
+                    scoresList.innerHTML = '<li class="text-center text-gray-500">No hay puntuaciones guardadas.</li>';
+                } else {
+                    scores.forEach((s, index) => {
+                        const li = document.createElement('li');
+                        li.classList.add('p-3', 'bg-gray-100', 'rounded-lg', 'flex', 'justify-between', 'items-center');
+                        li.innerHTML = `
+                            <span class="font-bold text-gray-800">${index + 1}. ${s.name}</span>
+                            <span class="text-gray-600">Nivel ${s.level}</span>
+                            <span class="font-mono text-blue-600">${s.score}</span>
+                        `;
+                        scoresList.appendChild(li);
+                    });
+                }
+            } catch (error) {
+                scoresList.innerHTML = '<li class="text-center text-red-500">Error al cargar la tabla de puntuaciones.</li>';
+                console.error(error);
+            }
+        }
+    </script>
+</body>
+</html>

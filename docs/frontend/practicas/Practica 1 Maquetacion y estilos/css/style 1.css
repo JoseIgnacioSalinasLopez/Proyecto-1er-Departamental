@@ -1,0 +1,95 @@
+/* Estilo general */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background: url("../img/fondo.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caja principal */
+.box {
+  background: rgba(0, 0, 0, 0.4); /* semi-transparente */
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* Encabezado */
+.top-header span {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ddd;
+}
+
+.top-header header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+.input-field {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.input-field span {
+  font-size: 14px;
+  color: #eee;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Botón */
+.submit {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit:hover {
+  background: white;
+}
+
+/* Sección inferior */
+.bottom {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.bottom label, 
+.bottom a {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bottom a:hover {
+  text-decoration: underline;
+}

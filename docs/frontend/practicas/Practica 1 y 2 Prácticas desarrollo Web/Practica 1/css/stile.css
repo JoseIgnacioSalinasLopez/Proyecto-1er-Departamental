@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  background: url("../img/fondo.png");
+  background-size: cover;       /* La imagen cubre toda la pantalla */
+  background-position: center;  /* Centrada */
+  background-attachment: fixed; /* Efecto parallax al hacer scroll */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparente para resaltar */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+  max-width: 350px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  background-image: url("../img/foto.png");
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.career {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #1342a0;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #3b6dd9;
+  transform: scale(1.05);
+}
+
+#contact {
+  margin-top: 15px;
+  color: #222;
+}
+
+.hidden {
+  display: none;
+}
