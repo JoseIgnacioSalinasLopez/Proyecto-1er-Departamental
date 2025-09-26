@@ -1,23 +1,27 @@
 const express = require('express');
 const path = require('path');
+const cors = require("cors");
 const scoresRouter = require('./scores.routes');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // 👈 Render asigna el puerto
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// Sirve archivos estáticos desde la carpeta 'frontend'
+// Habilitar CORS
+app.use(cors());
+
+// Servir archivos estáticos para pruebas locales
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Configura las rutas de la API (ahora en /api/scores)
+// Rutas de la API
 app.use('/api/scores', scoresRouter);
 
-// Fallback: si no encuentra ruta, devuelve index.html (SPA)
-app.get('/users/*path', (req, res) => {
-  // Ahora el parámetro tiene nombre
+// Fallback SPA
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en puerto ${PORT}`);
 });
