@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    color: white;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ========================================
+   FONDOS DINÁMICOS SEGÚN CLIMA
+   ======================================== */
+
+.sunny {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+}
+
+.rainy {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+}
+
+.cloudy {
+    background: linear-gradient(135deg, #636e72, #b2bec3);
+}
+
+.snowy {
+    background: linear-gradient(135deg, #ddd, #fff);
+    color: #333;
+}
+
+.clear-night {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+}
+
+/* ========================================
+   ANIMACIONES DE PARTÍCULAS PARA LLUVIA
+   ======================================== */
+
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.raindrop {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    width: 2px;
+    height: 15px;
+    border-radius: 1px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* ========================================
+   ANIMACIONES PARA NIEVE
+   ======================================== */
+
+.snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    color: white;
+    font-size: 1em;
+    animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+/* ========================================
+   TÍTULO DE LA APP
+   ======================================== */
+
+.app-title {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ========================================
+   TARJETA DEL CLIMA
+   ======================================== */
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   SPINNER DE CARGA
+   ======================================== */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255,255,255,0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   INFORMACIÓN DEL CLIMA
+   ======================================== */
+
+.weather-info {
+    display: none;
+}
+
+.weather-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.location {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.detail-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ========================================
+   BUSCADOR DE CIUDAD
+   ======================================== */
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    width: 250px;
+    margin-right: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* ========================================
+   MENSAJE DE ERROR
+   ======================================== */
+
+.error-message {
+    display: none;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   BOTÓN DE GEOLOCALIZACIÓN
+   ======================================== */
+
+.geo-btn {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.geo-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* ========================================
+   DISEÑO RESPONSIVE
+   ======================================== */
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .app-title {
+        font-size: 2rem;
+    }
+
+    .search-input {
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - Mi Clima</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="../css/stile.css">
+</head>
+<body class="sunny">
+    <!-- Contenedor de efectos de lluvia (se crea dinámicamente) -->
+    <div class="rain-container" id="rainContainer"></div>
+    
+    <!-- Contenedor de efectos de nieve (se crea dinámicamente) -->
+    <div class="snow-container" id="snowContainer"></div>
+
+    <div class="container">
+        <h1 class="app-title">
+            <i class="fas fa-cloud-sun"></i>
+            Mi Clima
+        </h1>
+
+        <!-- Mensaje de error -->
+        <div class="error-message" id="errorMessage"></div>
+
+        <!-- Buscador de ciudad -->
+        <div class="search-container">
+            <input type="text" class="search-input" id="citySearch" placeholder="Buscar ciudad...">
+            <button class="search-btn" id="searchBtn">
+                <i class="fas fa-search"></i>
+            </button>
+            <br><br>
+            <button class="geo-btn" id="geoBtn">
+                <i class="fas fa-location-dot"></i>
+                Usar mi ubicación
+            </button>
+        </div>
+
+        <!-- Tarjeta del clima -->
+        <div class="weather-card">
+            <!-- Spinner de carga -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Obteniendo datos del clima...</p>
+            </div>
+
+            <!-- Información del clima -->
+            <div class="weather-info" id="weatherInfo">
+                <div class="weather-icon" id="weatherIcon"></div>
+                <div class="temperature" id="temperature"></div>
+                <div class="description" id="description"></div>
+                <div class="location" id="location"></div>
+                
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-label">Sensación térmica</div>
+                        <div class="detail-value" id="feelsLike"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Humedad</div>
+                        <div class="detail-value" id="humidity"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Viento</div>
+                        <div class="detail-value" id="windSpeed"></div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Presión</div>
+                        <div class="detail-value" id="pressure"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="../js/logic.js"></script>
+</body>
+</html>
